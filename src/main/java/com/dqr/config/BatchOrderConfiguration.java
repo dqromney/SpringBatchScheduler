@@ -38,7 +38,7 @@ import java.util.Date;
 @Configuration
 @EnableBatchProcessing
 @Import({BatchScheduler.class})
-public class BatchConfiguration {
+public class BatchOrderConfiguration {
 
     @Autowired
     private SimpleJobLauncher jobLauncher;
