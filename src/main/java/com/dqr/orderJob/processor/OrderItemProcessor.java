@@ -1,9 +1,9 @@
-package com.dqr.processor;
+package com.dqr.orderJob.processor;
 
 import org.springframework.batch.item.ItemProcessor;
 
-import com.dqr.beans.Order;
-import com.dqr.beans.SvcReq;
+import com.dqr.orderJob.beans.Order;
+import com.dqr.orderJob.beans.SvcReq;
 
 /**
  * Created by dqromney on 3/15/17.
@@ -22,5 +22,4 @@ public class OrderItemProcessor implements ItemProcessor<Order, SvcReq> {
 
         return svcReq;
     }
-
 }

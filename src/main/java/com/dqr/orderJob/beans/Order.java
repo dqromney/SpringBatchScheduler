@@ -1,4 +1,4 @@
-package com.dqr.beans;
+package com.dqr.orderJob.beans;
 
 /**
  * Created by dqromney on 3/15/17.

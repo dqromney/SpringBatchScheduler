@@ -1,10 +1,10 @@
 package com.dqr.config;
 
-import com.dqr.beans.Order;
-import com.dqr.beans.SvcReq;
-import com.dqr.order.OrderSvcInvoker;
-import com.dqr.processor.JobCompletionNotificationListener;
-import com.dqr.processor.OrderItemProcessor;
+import com.dqr.orderJob.beans.Order;
+import com.dqr.orderJob.beans.SvcReq;
+import com.dqr.orderJob.order.OrderSvcInvoker;
+import com.dqr.orderJob.processor.JobCompletionNotificationListener;
+import com.dqr.orderJob.processor.OrderItemProcessor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobExecutionListener;
@@ -32,7 +32,7 @@ import java.util.Date;
 
 /**
  * Batch Configuration.
- *
+ * <p>
  * Created by dqromney on 3/15/17.
  */
 @Configuration
@@ -49,7 +49,10 @@ public class BatchConfiguration {
     @Autowired
     public StepBuilderFactory stepBuilderFactory;
 
+    // job to start every 30 seconds
     @Scheduled(cron = "*/30 * * * * ?")
+    // job to start at '5 PM 53 minutes 1 second' and run for every 3 minutes till 6 PM
+    // @Scheduled(cron = "1 53/3 17 * * ?")
     public void perform() throws Exception {
 
         System.out.println("Job Started at :" + new Date());
@@ -72,7 +75,7 @@ public class BatchConfiguration {
 
     @Bean
     public Step orderStep() {
-        return stepBuilderFactory.get("orderStep").<Order, SvcReq> chunk(3)
+        return stepBuilderFactory.get("orderStep").<Order, SvcReq>chunk(3)
                 .reader(reader()).processor(processor()).writer(writer())
                 .build();
     }
@@ -85,7 +88,7 @@ public class BatchConfiguration {
             {
                 setLineTokenizer(new DelimitedLineTokenizer() {
                     {
-                        setNames(new String[] { "orderID", "orderName" });
+                        setNames(new String[]{"orderID", "orderName"});
                     }
                 });
                 setFieldSetMapper(new BeanWrapperFieldSetMapper<Order>() {

@@ -1,13 +1,13 @@
-package com.dqr.beans;
+package com.dqr.orderJob.beans;
 
 /**
  * Created by dqromney on 3/15/17.
  */
-public class SvcReq {
+public class SvcResp {
 
     private String id;
 
-    private String name;
+    private String message;
 
     public String getId() {
         return id;
@@ -17,21 +17,21 @@ public class SvcReq {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getMessage() {
+        return message;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("SvcReq [id=");
+        builder.append("SvcResp [id=");
         builder.append(id);
-        builder.append(", name=");
-        builder.append(name);
+        builder.append(", message=");
+        builder.append(message);
         builder.append("]");
         return builder.toString();
     }

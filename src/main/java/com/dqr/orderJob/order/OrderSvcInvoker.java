@@ -1,15 +1,15 @@
-package com.dqr.order;
+package com.dqr.orderJob.order;
 
-import java.util.List;
-
+import com.dqr.orderJob.beans.SvcReq;
+import com.dqr.orderJob.beans.SvcResp;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import com.dqr.beans.SvcReq;
-import com.dqr.beans.SvcResp;
+import java.util.List;
 
 /**
+ *
  * Created by dqromney on 3/15/17.
  */
 public class OrderSvcInvoker implements ItemWriter<SvcReq> {
