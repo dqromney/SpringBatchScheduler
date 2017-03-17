@@ -50,9 +50,9 @@ public class BatchOrderConfiguration {
     public StepBuilderFactory stepBuilderFactory;
 
     // job to start every 30 seconds
-    @Scheduled(cron = "*/30 * * * * ?")
+    // @Scheduled(cron = "*/30 * * * * ?")
     // job to start at '5 PM 53 minutes 1 second' and run for every 3 minutes till 6 PM
-    // @Scheduled(cron = "1 53/3 17 * * ?")
+    @Scheduled(cron = "1 53/3 17 * * ?")
     public void perform() throws Exception {
 
         System.out.println("Job Started at :" + new Date());
