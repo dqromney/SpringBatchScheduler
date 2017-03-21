@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Ex.
  * wget "http://localhost:8080/joblauncher?job=<somejob>&param1=value1&param2=value2"
  *
- * wget "http://localhost:8080/joblauncher?job=processOrderJob"
+ * wget "http://localhost:8080/launchJob?job=processOrderJob"
  *
  * Created by dqromney on 3/17/17.
  */
